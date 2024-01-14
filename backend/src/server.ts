@@ -1,6 +1,6 @@
 import { app } from "./app";
 import { configDotenv } from "dotenv";
-import { Task, sequelize } from "./database/config.database";
+import { sequelize } from "./database/config.database";
 const { parsed }: any = configDotenv()
 
 app.listen(process.env.PORT, () => {

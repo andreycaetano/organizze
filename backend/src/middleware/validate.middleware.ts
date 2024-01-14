@@ -3,6 +3,7 @@ import { AnyZodObject } from "zod";
 import jwt from "jsonwebtoken"
 import { configDotenv } from "dotenv";
 import { AppError } from "../errors/appError";
+import { Task } from "../database/config.database";
 
 
 interface IRequestSchemas {
@@ -48,5 +49,22 @@ export class ValidateToken{
          res.locals.user = decoded
          next()
       })
+   }
+}
+
+export class ValidateIdTask{
+   static async execute(req: Request, res: Response, next: NextFunction){
+      const id = req.params.id
+      console.log(id)
+      if(!id){
+         throw new AppError(404, "ID required")
+      }
+      const task = await Task.findByPk(Number(id))
+      console.log(task)
+      if(!task){
+         throw new AppError(404, "Task not found.")
+      }
+      res.locals.task = task
+      next()
    }
 }

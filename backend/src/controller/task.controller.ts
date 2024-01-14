@@ -16,4 +16,14 @@ export class TaskController {
         const listTask = await TaskServices.getAll(res.locals.user.id)
         return res.status(200).json(listTask)
     }
+
+    static async updateTask(req: Request, res: Response){
+        const task = await TaskServices.updateTask(req.body.status, req.params.id)
+        return res.status(200).json(task)
+    }
+
+    static async deleteTask(req: Request, res: Response){
+        await TaskServices.deleteTask(req.params.id)
+        return res.status(200).send()
+    }
 }

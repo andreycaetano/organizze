@@ -2,7 +2,7 @@ import { configDotenv } from "dotenv";
 import { AuthUser, User } from "../database/config.database";
 import { IUser } from "../interface/user.interface";
 import bcrypt, { hash } from "bcrypt"
-import jwt from "jsonwebtoken";
+import jwt, { VerifyErrors } from "jsonwebtoken";
 const { parsed }: any = configDotenv()
 
 
@@ -37,9 +37,9 @@ export class UserServices {
             })
             return authUser
         }
-        const verify = jwt.verify(findToken.dataValues.AuthToken, parsed.SECRET_KEY, async (err: any) => {
+        const verify = jwt.verify(findToken.dataValues.AuthToken, parsed.SECRET_KEY, async (err: VerifyErrors | null) => {
             if (err) {
-                const token = jwt.sign({ id: user.dataValues.id }, parsed.SECRET_KEY, {
+                const token = jwt.sign({ userId: user.dataValues.id }, parsed.SECRET_KEY, {
                     expiresIn: "2h"
                 });
                 findToken.dataValues.AuthToken = token

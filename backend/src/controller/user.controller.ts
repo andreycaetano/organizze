@@ -13,7 +13,6 @@ export class UserController{
        if(!token){
         throw new AppError(401, "Authentication error")
        }
-       
        return res.status(200).json(token)
     }
 }

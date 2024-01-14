@@ -1,5 +1,5 @@
-import { DataTypes, Model, Sequelize, where } from "sequelize";
-import { configDotenv } from "dotenv";
+import { DataTypes, Model, Sequelize } from "sequelize";
+import {configDotenv} from "dotenv";
 
 const { parsed }: any = configDotenv()
 const {DATABASE_DB, USERNAME_DB, PASS_DB, HOST_DB, DIALECT_DB} = parsed 
