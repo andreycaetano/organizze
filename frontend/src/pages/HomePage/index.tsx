@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss"
-import { Footer } from "../components/Footer"
+import { Footer } from "../../components/Footer"
 import { useState } from "react"
-import { LoginSection } from "../components/HomePages/LoginSection"
-import { RegisterSection } from "../components/HomePages/RegisterSection"
+import { LoginSection } from "../../components/HomePages/LoginSection"
+import { RegisterSection } from "../../components/HomePages/RegisterSection"
 
 export const HomePage = () => {
 
