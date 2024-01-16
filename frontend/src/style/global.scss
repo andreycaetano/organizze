@@ -1,0 +1,21 @@
+:root{
+    --grey-1: #7e7e7e;
+    --grey-2: #666666;
+    --grey-3: #4f4f4f;
+    --grey-4: #373737;
+    --grey-5: #1f1f1f;
+
+    --main-font: 'Roboto', sans-serif;
+}
+
+.dark-model:root{
+    --grey-5: #7e7e7e;
+    --grey-4: #666666;
+    --grey-3: #4f4f4f;
+    --grey-2: #373737;
+    --grey-1: #1f1f1f;
+}
+
+body{
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+}
